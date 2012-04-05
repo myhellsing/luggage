@@ -1,8 +1,5 @@
-module.exports.list = function(Bill, req, res){
-    var bill = new Bill({title: "some bill", date: new Date()});
-    bill.save();
-    Bill.find({}, function(err,docs){
-        res.send(docs.length);    
+module.exports = function(Bill, req, res){
+    Bill.find({}, function(err,bills){
+        res.render("list", {"bills": bills});
     })
-//  res.render('index', { title: 'Express' })
 };

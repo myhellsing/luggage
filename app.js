@@ -5,8 +5,6 @@ var express = require('express')
   , lib = require('./lib')
   , utils = lib.utils;
 
-console.log(models, lib, utils);
-
 var app = module.exports.app = express.createServer();
 module.exports.models = models
 // Configuration
@@ -31,8 +29,13 @@ app.configure('production', function(){
 });
 
 // Routes
-//app.get('/', function(req,res){res.send('123')});
-app.get('/', utils.curry(routes.list, models.Bill));
+app.get('/', utils.curry(routes.list, models.bill));
+/*app.get('/', function(req,res){
+    Bill.find({}, function(err,bills){
+        res.render("list", {"bills": bills});
+    })
+});*/
+
 //app.get('/create', routes.create);
 //app.post('/create', routes.create);
 
