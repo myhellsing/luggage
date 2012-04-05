@@ -11,7 +11,7 @@ module.exports.models = models
 
 app.configure(function(){
   app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
+  app.set('view engine', 'ejs');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
@@ -30,12 +30,6 @@ app.configure('production', function(){
 
 // Routes
 app.get('/', utils.curry(routes.list, models.bill));
-/*app.get('/', function(req,res){
-    Bill.find({}, function(err,bills){
-        res.render("list", {"bills": bills});
-    })
-});*/
-
 //app.get('/create', routes.create);
 //app.post('/create', routes.create);
 

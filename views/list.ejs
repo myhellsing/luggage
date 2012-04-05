@@ -1,0 +1,10 @@
+<% if (bills.length) { %>
+  <ul>
+    <% bills.forEach(function(bill){ %>
+      <li>
+        <%= bill.title %>
+        <%= bill.date.toDateString() %>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>
